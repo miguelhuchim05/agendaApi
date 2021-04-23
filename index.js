@@ -4,6 +4,7 @@ const { config } = require('./config');
 
 // Routes
 const authApi = require('./routes/auth');
+const userApi = require('./routes/user');
 
 // Middlewares for error
 const { wrapErrors, errorHandler } = require('./utils/middleware/errorHandler');
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Endpoints
 authApi(app);
+userApi(app);
 
 // Not found routes
 app.use(notFoundHandler);
