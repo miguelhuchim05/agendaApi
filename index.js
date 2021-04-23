@@ -5,6 +5,7 @@ const { config } = require('./config');
 // Routes
 const authApi = require('./routes/auth');
 const userApi = require('./routes/user');
+const agendaApi = require('./routes/agenda');
 
 // Middlewares for error
 const { wrapErrors, errorHandler } = require('./utils/middleware/errorHandler');
@@ -16,6 +17,7 @@ app.use(express.json());
 // Endpoints
 authApi(app);
 userApi(app);
+agendaApi(app);
 
 // Not found routes
 app.use(notFoundHandler);
