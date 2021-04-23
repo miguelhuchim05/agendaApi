@@ -3,13 +3,11 @@ const { config } = require('../../config');
 
 function wrapErrors(err, req, res, next) {
     if (!err.isBoom) {
-        console.log('No es boom');
         next(boom.badImplementation(err));
 
         return;
     }
 
-    console.log('Es boom');
     next(err);
 }
 
