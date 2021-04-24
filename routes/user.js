@@ -21,7 +21,7 @@ function userApi(app) {
             try {
                 const users = await userService.getUsers();
 
-                return res.status(200).json({
+                res.status(200).json({
                     message: '',
                     data: users
                 });
@@ -41,7 +41,7 @@ function userApi(app) {
 
                 const user = await userService.getUserById(id);
 
-                return res.status(200).json({
+                res.status(200).json({
                     message: '',
                     data: user
                 });
@@ -61,7 +61,7 @@ function userApi(app) {
 
                 const userCreated = await userService.createUser(user);
 
-                return res.status(200).json({
+                res.status(201).json({
                     message: 'User created',
                     data: userCreated
                 });
@@ -79,12 +79,9 @@ function userApi(app) {
             try {
                 const { id } = req.params;
 
-                await userService.deleteUserById(id);
+                await userService.deleteUser(id);
 
-                return res.status(200).json({
-                    message: 'User deleted',
-                    data: null
-                });
+                res.sendStatus(204);
             } catch (error) {
                 next(error);
             }

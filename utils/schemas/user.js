@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-const idUserSchema = joi.number().required();
+const idUserSchema = joi.number();
 const nameUserSchema = joi.string();
 const emailUserSchema = joi.string();
 const passwordUserSchema = joi.string();

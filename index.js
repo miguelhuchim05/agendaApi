@@ -6,6 +6,7 @@ const { config } = require('./config');
 const authApi = require('./routes/auth');
 const userApi = require('./routes/user');
 const agendaApi = require('./routes/agenda');
+const eventApi = require('./routes/event');
 
 // Middlewares for error
 const { wrapErrors, errorHandler } = require('./utils/middleware/errorHandler');
@@ -18,6 +19,7 @@ app.use(express.json());
 authApi(app);
 userApi(app);
 agendaApi(app);
+eventApi(app);
 
 // Not found routes
 app.use(notFoundHandler);

@@ -14,10 +14,7 @@ class UserService {
     }
 
     async getUserById(id) {
-        return await User.findOne({
-            where: {
-                id
-            },
+        return await User.findByPk(id, {
             attributes: {
                 exclude: ['password']
             },
@@ -55,7 +52,7 @@ class UserService {
         });
     }
 
-    async deleteUserById(id) {
+    async deleteUser(id) {
         await User.destroy({
             where: {
                 id

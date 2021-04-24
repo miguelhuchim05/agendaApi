@@ -16,7 +16,7 @@ function authApi(app) {
                 const user = req.user;
                 const token = await authService.getToken(user);
 
-                return res.status(200).json({
+                res.status(200).json({
                     message: '',
                     data: {
                         token

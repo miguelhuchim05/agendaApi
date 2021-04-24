@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-const idAgendaSchema = joi.number().required();
+const idAgendaSchema = joi.number();
 const lockAgendaSchema = joi.boolean();
 
 const updateAgendaSchema = {

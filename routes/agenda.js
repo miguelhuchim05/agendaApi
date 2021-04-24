@@ -14,6 +14,9 @@ function agendaApi(app) {
 
     const agendaService = new AgendaService();
 
+    /**
+     * Path to update the agenda of the logged in user.
+     */
     router.patch(
         '/:id',
         authVerifyToken(),
@@ -21,12 +24,13 @@ function agendaApi(app) {
         validationHanlder(updateAgendaSchema),
         async function (req, res, next) {
             try {
+                const userId = req.user.id;
                 const { id } = req.params;
                 const agenda = req.body;
 
-                const agendaUpdated = await agendaService.updateAgenda(agenda, id);
+                const agendaUpdated = await agendaService.updateAgenda(agenda, id, userId);
 
-                return res.status(200).json({
+                res.status(200).json({
                     message: 'Agenda updated',
                     data: agendaUpdated
                 });
